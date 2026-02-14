@@ -1,49 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import './App.css';
 import './index.css';
-import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/sections/Hero';
 import { Services } from './components/sections/Services';
 import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
+import { Preloader } from './components/layout/Preloader';
+import { ProjectModal } from './components/ui/ProjectModal';
+import { projectsData } from './data/projects';
 
 function AppContent() {
-    const { t, tHtml } = useLanguage();
-    const [loadingProgress, setLoadingProgress] = useState(0);
-    const [isLoaded, setIsLoaded] = useState(false);
+    const { isLoaded, setIsLoaded } = usePreloader();
     const [activeModal, setActiveModal] = useState<string | null>(null);
 
-    // Preloader Logic
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setLoadingProgress(prev => {
-                if (prev >= 90) {
-                    clearInterval(interval);
-                    return 90;
-                }
-                return prev + Math.random() * 10;
-            });
-        }, 100);
-
-        const handleLoad = () => {
-            clearInterval(interval);
-            setLoadingProgress(100);
-            setTimeout(() => setIsLoaded(true), 500);
-        };
-
-        if (document.readyState === 'complete') {
-            handleLoad();
-        } else {
-            window.addEventListener('load', handleLoad);
-            return () => window.removeEventListener('load', handleLoad);
-        }
-        return () => clearInterval(interval);
-    }, []);
+    const activeProject = useMemo(() =>
+        projectsData.find(p => p.id === activeModal) || null,
+        [activeModal]
+    );
 
     // Intersection Observer for scroll animations
     useEffect(() => {
+        if (!isLoaded) return;
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -79,16 +60,7 @@ function AppContent() {
 
     return (
         <>
-            {/* PRELOADER */}
-            {!isLoaded && (
-                <div id="preloader">
-                    <img src="/assets/logo-teo_compressed_final.png" alt="Logo" className="preloader-logo" />
-                    <div className="progress-container">
-                        <div id="progress-bar" style={{ width: `${loadingProgress}%` }}></div>
-                    </div>
-                    <div id="progress-counter">{Math.round(loadingProgress)}%</div>
-                </div>
-            )}
+            {!isLoaded && <Preloader onLoaded={() => setIsLoaded(true)} />}
 
             <Header />
 
@@ -100,74 +72,19 @@ function AppContent() {
                 <Contact />
             </main>
 
-            {/* --- MODALS --- */}
-
-            {/* BMS Modal */}
-            <div className={`dialog ${activeModal === 'dialog-projet-pro' ? 'is-open' : ''}`} onClick={() => setActiveModal(null)}>
-                <div className="dialog-content" onClick={e => e.stopPropagation()}>
-                    <div className="dialog-main-layout">
-                        <div className="dialog-visual">
-                            <img src="https://images.pexels.com/photos/574073/pexels-photo-574073.jpeg" alt="BMS App" />
-                        </div>
-                        <div className="dialog-header-content">
-                            <h2 className="dialog-title" dangerouslySetInnerHTML={tHtml('dialog_bms_title')}></h2>
-                            <p className="dialog-short-description">{t('dialog_bms_short_desc')}</p>
-                            <div className="dialog-meta"><span>Flutter</span><span>Firebase</span><span>Windows</span></div>
-                        </div>
-                        <div className="dialog-body">
-                            <p>{t('dialog_bms_p1')}</p>
-                            <p>{t('dialog_bms_p2')}</p>
-                            <div className="dialog-screenshot">
-                                <img src="/assets/Capture d'écran 1.png" alt="Dashboard" />
-                                <p className="caption">{t('dialog_bms_caption1')}</p>
-                            </div>
-                            <p>{t('dialog_bms_p3')}</p>
-                            <div className="dialog-screenshot">
-                                <img src="/assets/Capture d'écran 2.png" alt="Facturation" />
-                                <p className="caption">{t('dialog_bms_caption2')}</p>
-                            </div>
-                            <p>{t('dialog_bms_p4')}</p>
-                        </div>
-                    </div>
-                    <button className="dialog-close" onClick={() => setActiveModal(null)}>{t('dialog_close')}</button>
-                </div>
-            </div>
-
-            {/* GmailSorter Modal */}
-            <div className={`dialog ${activeModal === 'dialog-projet-gmailsorter' ? 'is-open' : ''}`} onClick={() => setActiveModal(null)}>
-                <div className="dialog-content" onClick={e => e.stopPropagation()}>
-                    <div className="dialog-main-layout">
-                        <div className="dialog-visual">
-                            <img src="https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg" alt="Gmail" />
-                        </div>
-                        <div className="dialog-header-content">
-                            <h2 className="dialog-title" dangerouslySetInnerHTML={tHtml('dialog_gmail_title')}></h2>
-                            <p className="dialog-short-description">{t('dialog_gmail_short_desc')}</p>
-                            <div className="dialog-meta"><span>Python</span><span>Gmail API</span><span>Gemini</span></div>
-                        </div>
-                        <div className="dialog-body">
-                            <p>{t('dialog_gmail_p1')}</p>
-                            <p>{t('dialog_gmail_p2')}</p>
-                            <p>{t('dialog_gmail_p3')}</p>
-                        </div>
-                    </div>
-                    <button className="dialog-close" onClick={() => setActiveModal(null)}>{t('dialog_close_2')}</button>
-                </div>
-            </div>
-
-            {/* Scolaire Modal */}
-            <div className={`dialog ${activeModal === 'dialog-projet-scolaire' ? 'is-open' : ''}`} onClick={() => setActiveModal(null)}>
-                <div className="dialog-content" onClick={e => e.stopPropagation()}>
-                    <div className="dialog-main-layout">
-                        <div className="dialog-body">
-                            <p>{t('dialog_school_content')}</p>
-                        </div>
-                    </div>
-                    <button className="dialog-close" onClick={() => setActiveModal(null)}>{t('dialog_close_3')}</button>
-                </div>
-            </div>
+            <ProjectModal
+                project={activeProject}
+                isOpen={!!activeModal}
+                onClose={() => setActiveModal(null)}
+            />
         </>
     );
+}
+
+// Custom hook to manage preloader state
+function usePreloader() {
+    const [isLoaded, setIsLoaded] = useState(false);
+    return { isLoaded, setIsLoaded };
 }
 
 function App() {
