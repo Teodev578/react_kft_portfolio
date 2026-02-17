@@ -25,7 +25,7 @@ export const projectsData: ProjectModalData[] = [
         id: 'dialog-projet-gmailsorter',
         number: '#2',
         titleKey: 'project_2_title',
-        tags: ['Python', 'Gemini 1.5', 'Gmail API'],
+        tags: ['Python', 'Gemini 1.5', 'Gmail API',],
         actionKey: 'project_learn_more_2',
         image: 'https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg',
         modalTitleKey: 'dialog_gmail_title',

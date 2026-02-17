@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { SocialLink } from '../ui/SocialLink';
+import { ContactEmail } from '../ui/ContactEmail';
 
 export const Contact = () => {
     const { t } = useLanguage();
-    const [status, setStatus] = useState<{message: string, color: string}>({ message: '', color: '' });
+    const [status, setStatus] = useState<{ message: string, color: string }>({ message: '', color: '' });
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget;
         const formData = new FormData(form);
-        
+
         setStatus({ message: "Envoi en cours...", color: 'var(--text-color)' });
 
         try {
@@ -20,7 +22,7 @@ export const Contact = () => {
             });
 
             const json = await response.json();
-            
+
             if (response.status === 200) {
                 setStatus({ message: "Message envoyé avec succès !", color: 'green' });
                 form.reset();
@@ -57,9 +59,9 @@ export const Contact = () => {
 
                         <button type="submit" className="submit-btn-new">
                             <span>{t('contact_form_submit')}</span>
-                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 13.5L13.5 1.5M13.5 1.5H3.5M13.5 1.5V11.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>                        
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 13.5L13.5 1.5M13.5 1.5H3.5M13.5 1.5V11.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                         </button>
-                        <div id="form-status" className="form-status-new" style={{color: status.color}}>{status.message}</div>
+                        <div id="form-status" className="form-status-new" style={{ color: status.color }}>{status.message}</div>
                     </form>
                 </div>
 
@@ -69,20 +71,11 @@ export const Contact = () => {
                     </div>
                     <div className="contact-details-group">
                         <div className="contact-links-new">
-                            <a href="https://www.facebook.com/TeoDePeya" target="_blank" rel="noopener noreferrer">
-                                <span>{t('contact_social_fb')}</span>
-                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 13.5L13.5 1.5M13.5 1.5H3.5M13.5 1.5V11.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </a>
-                            <a href="https://www.instagram.com/fabienkpekpassi/" target="_blank" rel="noopener noreferrer">
-                                <span>{t('contact_social_ig')}</span>
-                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 13.5L13.5 1.5M13.5 1.5H3.5M13.5 1.5V11.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/fabien-kpekpassi-7aba12229/" target="_blank" rel="noopener noreferrer">
-                                <span>{t('contact_social_li')}</span>
-                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 13.5L13.5 1.5M13.5 1.5H3.5M13.5 1.5V11.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </a>
+                            <SocialLink href="https://www.facebook.com/TeoDePeya" label={t('contact_social_fb')} />
+                            <SocialLink href="https://www.instagram.com/fabienkpekpassi/" label={t('contact_social_ig')} />
+                            <SocialLink href="https://www.linkedin.com/in/fabien-kpekpassi-7aba12229/" label={t('contact_social_li')} />
                         </div>
-                        <a href="mailto:teokpekpassi@gmail.com" className="contact-email-new">teokpekpassi@gmail.com</a>
+                        <ContactEmail email="teokpekpassi@gmail.com" />
                     </div>
                     <div className="contact-background-text">CONTACT</div>
                 </div>
