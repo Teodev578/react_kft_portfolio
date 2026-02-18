@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import './index.css';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -9,17 +9,9 @@ import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { Preloader } from './components/layout/Preloader';
-import { ProjectModal } from './components/ui/ProjectModal';
-import { projectsData } from './data/projects';
 
 function AppContent() {
     const { isLoaded, setIsLoaded } = usePreloader();
-    const [activeModal, setActiveModal] = useState<string | null>(null);
-
-    const activeProject = useMemo(() =>
-        projectsData.find(p => p.id === activeModal) || null,
-        [activeModal]
-    );
 
     // Intersection Observer for scroll animations
     useEffect(() => {
@@ -40,24 +32,6 @@ function AppContent() {
         return () => observer.disconnect();
     }, [isLoaded]);
 
-    // Modal lock
-    useEffect(() => {
-        if (activeModal) {
-            document.body.classList.add('dialog-open');
-        } else {
-            document.body.classList.remove('dialog-open');
-        }
-    }, [activeModal]);
-
-    // Close modals on escape
-    useEffect(() => {
-        const handleEsc = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') setActiveModal(null);
-        };
-        window.addEventListener('keydown', handleEsc);
-        return () => window.removeEventListener('keydown', handleEsc);
-    }, []);
-
     return (
         <>
             {!isLoaded && <Preloader onLoaded={() => setIsLoaded(true)} />}
@@ -68,15 +42,9 @@ function AppContent() {
                 <Hero />
                 <Services />
                 <About />
-                <Projects onOpenProject={(id) => setActiveModal(id)} />
+                <Projects />
                 <Contact />
             </main>
-
-            <ProjectModal
-                project={activeProject}
-                isOpen={!!activeModal}
-                onClose={() => setActiveModal(null)}
-            />
         </>
     );
 }

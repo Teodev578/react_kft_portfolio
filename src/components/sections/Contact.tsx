@@ -47,12 +47,16 @@ export const Contact = () => {
 
                     <form id="contact-form" onSubmit={handleSubmit}>
                         <input type="hidden" name="access_key" value="8efd2e12-79ac-4611-989d-e4c448541f75" />
-                        <div className="form-group-new">
-                            <input type="text" id="name" name="name" placeholder={t('contact_form_name')} required />
+
+                        <div className="form-row-new">
+                            <div className="form-group-new">
+                                <input type="text" id="name" name="name" placeholder={t('contact_form_name')} required />
+                            </div>
+                            <div className="form-group-new">
+                                <input type="email" id="email" name="email" placeholder={t('contact_form_email')} required />
+                            </div>
                         </div>
-                        <div className="form-group-new">
-                            <input type="email" id="email" name="email" placeholder={t('contact_form_email')} required />
-                        </div>
+
                         <div className="form-group-new">
                             <textarea id="message" name="message" placeholder={t('contact_form_message')} rows={5} required></textarea>
                         </div>
@@ -77,7 +81,7 @@ export const Contact = () => {
                         </div>
                         <ContactEmail email="teokpekpassi@gmail.com" />
                     </div>
-                    <div className="contact-background-text">CONTACT</div>
+                    {/* <div className="contact-background-text">CONTACT</div> */}
                 </div>
             </div>
         </section>

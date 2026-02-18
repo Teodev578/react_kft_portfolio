@@ -1,13 +1,15 @@
+import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { ProjectCard } from '../ui/ProjectCard';
 import { projectsData } from '../../data/projects';
 
-interface ProjectsProps {
-    onOpenProject: (id: string) => void;
-}
-
-export const Projects = ({ onOpenProject }: ProjectsProps) => {
+export const Projects = () => {
     const { t } = useLanguage();
+    const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+
+    const toggleProject = (id: string) => {
+        setActiveProjectId(prev => prev === id ? null : id);
+    };
 
     return (
         <section id="projets" className="projects-section">
@@ -27,7 +29,8 @@ export const Projects = ({ onOpenProject }: ProjectsProps) => {
                         <ProjectCard
                             key={project.id}
                             project={project}
-                            onClick={onOpenProject}
+                            isOpen={activeProjectId === project.id}
+                            onToggle={() => toggleProject(project.id)}
                         />
                     ))}
                 </div>
