@@ -3,8 +3,8 @@ export const translations = {
         nav_home: "Accueil",
         nav_services: "Service",
         nav_about: "À propos",
-        nav_projects: "Projets",
-        nav_contact: "Contacts",
+        nav_projects: "Projet",
+        nav_contact: "Contact",
         hero_headline: "DÉVELOPPEUR",
         hero_intro: "Je suis Fabien Téo KPEKPASSi, développeur créatif. Je conçois des solutions logicielles efficaces pour automatiser vos tâches, optimiser vos processus métier et vous faire gagner du temps comme de l'argent.",
         hero_contact_btn: "Contactez-moi",
@@ -57,7 +57,7 @@ export const translations = {
         dialog_close_2: "X Fermer", // Ajouté
         dialog_close_3: "X Fermer", // Ajouté
         contact_title: "Donnons vie à votre projet :",
-        contact_intro: "Mon objectif : vous simplifier la vie en transformant vos défis quotidiens en applications intuitives et performantes. Les tâches complexes, répétitives ou fastidieuses ? C'est mon terrain de jeu. Racontez-moi votre idée, et construisons ensemble la solution qui vous fera gagner du temps et de la sérénité et de l'argent.",
+        contact_intro: "<strong>Mon objectif :</strong> vous simplifier la vie en transformant vos défis quotidiens en applications intuitives et performantes. Les tâches complexes, répétitives ou fastidieuses ? C'est mon terrain de jeu. Racontez-moi votre idée, et construisons ensemble la solution qui vous fera gagner du temps et de la sérénité et de l'argent.",
         contact_form_name: "Votre nom :",
         contact_form_email: "Votre email :",
         contact_form_message: "Votre message :",
@@ -66,12 +66,14 @@ export const translations = {
         contact_social_fb: "Facebook",
         contact_social_ig: "Instagram",
         contact_social_li: "Linkedin",
+        contact_social_x: "X",
+        contact_social_wa: "WhatsApp",
     },
     en: {
         nav_home: "Home",
-        nav_services: "Services",
+        nav_services: "Service",
         nav_about: "About",
-        nav_projects: "Projects",
+        nav_projects: "Project",
         nav_contact: "Contact",
         hero_headline: "DEVELOPER",
         hero_intro: "I am Fabien Téo KPEKPASSi, a creative developer. I design effective software solutions to automate your tasks, optimize your business processes, and save you time and money.",
@@ -125,7 +127,7 @@ export const translations = {
         dialog_close_2: "X Close",
         dialog_close_3: "X Close",
         contact_title: "Let's bring your project to life:",
-        contact_intro: "My goal: to simplify your life by transforming your daily challenges into intuitive and high-performing applications.",
+        contact_intro: "<strong>My goal:</strong> to simplify your life by transforming your daily challenges into intuitive and high-performing applications. Complex, repetitive, or tedious tasks? That's my playground. Tell me about your idea, and together let's build the solution that will save you time, peace of mind, and money.",
         contact_form_name: "Your name:",
         contact_form_email: "Your email:",
         contact_form_message: "Your message:",
@@ -134,5 +136,7 @@ export const translations = {
         contact_social_fb: "Facebook",
         contact_social_ig: "Instagram",
         contact_social_li: "Linkedin",
+        contact_social_x: "X",
+        contact_social_wa: "WhatsApp",
     }
 };

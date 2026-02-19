@@ -4,7 +4,7 @@ import { SocialLink } from '../ui/SocialLink';
 import { ContactEmail } from '../ui/ContactEmail';
 
 export const Contact = () => {
-    const { t } = useLanguage();
+    const { t, tHtml } = useLanguage();
     const [status, setStatus] = useState<{ message: string, color: string }>({ message: '', color: '' });
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +43,7 @@ export const Contact = () => {
 
                 <div className="contact-form-col">
                     <h2 className="contact-title-new">{t('contact_title')}</h2>
-                    <p className="contact-intro-new">{t('contact_intro')}</p>
+                    <p className="contact-intro-new" dangerouslySetInnerHTML={tHtml('contact_intro')}></p>
 
                     <form id="contact-form" onSubmit={handleSubmit}>
                         <input type="hidden" name="access_key" value="8efd2e12-79ac-4611-989d-e4c448541f75" />
@@ -78,6 +78,8 @@ export const Contact = () => {
                             <SocialLink href="https://www.facebook.com/TeoDePeya" label={t('contact_social_fb')} />
                             <SocialLink href="https://www.instagram.com/fabienkpekpassi/" label={t('contact_social_ig')} />
                             <SocialLink href="https://www.linkedin.com/in/fabien-kpekpassi-7aba12229/" label={t('contact_social_li')} />
+                            <SocialLink href="https://x.com/TeoDevUltimate" label={t('contact_social_x')} />
+                            {/*<SocialLink href="https://wa.me/22891963248" label={t('contact_social_wa')} />*/}
                         </div>
                         <ContactEmail email="teokpekpassi@gmail.com" />
                     </div>
