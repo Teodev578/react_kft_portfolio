@@ -1,0 +1,163 @@
+/* ======================================================== */
+/*                      SECTION ABOUT                       */
+/* ======================================================== */
+.about-section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: var(--header-height) var(--site-margin) 4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about-container {
+    width: 100%;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.about-name {
+    font-family: var(--font-headline);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.about-subtitle {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.about-description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 70ch;
+}
+
+.about-details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+.detail-title {
+    font-family: var(--font-body);
+    font-weight: 700;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-content {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.detail-content ul {
+    list-style: none;
+}
+
+.about-projects-link {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.about-projects-link:hover {
+    color: var(--accent-color);
+}
+
+@media (min-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr 1.8fr;
+        gap: 3rem 5rem;
+        align-items: start;
+    }
+
+    .about-details-grid {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .about-projects-link {
+        grid-column: 1 / -1;
+    }
+
+    .about-detail-item:not(:last-child) {
+        border-right: 1px solid var(--border-color);
+        padding-right: 2rem;
+    }
+}
+
+.about-section .about-image-wrapper,
+.about-section .about-name,
+.about-section .about-subtitle,
+.about-section .about-description,
+.about-section .about-detail-item,
+.about-section .about-projects-link {
+    opacity: 0;
+}
+
+.about-section.is-visible .about-image-wrapper,
+.about-section.is-visible .about-name,
+.about-section.is-visible .about-subtitle,
+.about-section.is-visible .about-description,
+.about-section.is-visible .about-detail-item,
+.about-section.is-visible .about-projects-link {
+    animation: slideUpAndFadeIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.about-section.is-visible .about-image-wrapper {
+    animation-delay: 0.1s;
+}
+
+.about-section.is-visible .about-name {
+    animation-delay: 0.2s;
+}
+
+.about-section.is-visible .about-subtitle {
+    animation-delay: 0.3s;
+}
+
+.about-section.is-visible .about-description {
+    animation-delay: 0.4s;
+}
+
+.about-section.is-visible .about-detail-item:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.about-section.is-visible .about-detail-item:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.about-section.is-visible .about-detail-item:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.about-section.is-visible .about-projects-link {
+    animation-delay: 0.8s;
+}
+

@@ -1,0 +1,217 @@
+/* ======================================================== */
+/*                       SECTION HERO                       */
+/* ======================================================== */
+.hero {
+    min-height: 100vh;
+    width: 100%;
+    padding: calc(var(--header-height) + 0.8rem) var(--site-margin) 4rem var(--site-margin);
+    display: flex;
+    align-items: center;
+}
+
+.hero-content-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: end;
+}
+
+.hero-text {
+    margin-bottom: 25vh;
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+
+    52% {
+        opacity: 1;
+    }
+
+    54% {
+        opacity: 0.95;
+    }
+
+    56% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    82% {
+        opacity: 0.85;
+    }
+
+    84% {
+        opacity: 1;
+    }
+}
+
+.main-headline {
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+    color: var(--text-color);
+    display: inline-block;
+    animation: flicker 4s infinite linear;
+    animation-delay: 2s;
+}
+
+.main-headline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--accent-color);
+    animation: revealBar 1s cubic-bezier(0.77, 0, 0.175, 1) 0.5s forwards;
+}
+
+@keyframes revealBar {
+    0% {
+        left: 0;
+        width: 0%;
+    }
+
+    50% {
+        left: 0;
+        width: 100%;
+    }
+
+    100% {
+        left: 100%;
+        width: 0%;
+    }
+}
+
+.intro-text {
+    max-width: 55ch;
+    font-size: 1.1rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+
+.hero-link {
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    transition: color 0.2s step-end, background-color 0.2s step-end;
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.hero-link:hover {
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.image-wrapper {
+    position: relative;
+    background-color: var(--accent-color);
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    mix-blend-mode: normal;
+    transition: mix-blend-mode 0.3s ease;
+}
+
+.image-wrapper:hover img {
+    mix-blend-mode: multiply;
+}
+
+body.dark-mode .image-wrapper:hover img {
+    mix-blend-mode: screen;
+}
+
+.visual-caption {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.caption-name {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.scroll-down-link {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    align-self: flex-start;
+    transition: color 0.3s ease;
+}
+
+.scroll-down-link:hover {
+    color: var(--accent-color);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero.is-visible .main-headline,
+.hero.is-visible .intro-text,
+.hero.is-visible .hero-actions,
+.hero.is-visible .hero-visual {
+    opacity: 0;
+    animation: appear 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.hero.is-visible .main-headline {
+    animation-delay: 0.2s;
+}
+
+.hero.is-visible .intro-text {
+    animation-delay: 0.4s;
+}
+
+.hero.is-visible .hero-actions {
+    animation-delay: 0.6s;
+}
+
+.hero.is-visible .hero-visual {
+    animation-delay: 0.4s;
+}
+
