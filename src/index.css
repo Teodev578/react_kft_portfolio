@@ -438,6 +438,10 @@ body.dark-mode .image-wrapper:hover img {
     transition: color 0.3s ease;
 }
 
+.scroll-down-link:hover {
+    color: var(--accent-color);
+}
+
 @keyframes appear {
     from {
         opacity: 0;
@@ -544,6 +548,11 @@ body.dark-mode .image-wrapper:hover img {
     font-size: 1.1rem;
     margin-top: 2.5rem;
     align-self: flex-start;
+    transition: color 0.3s ease;
+}
+
+.about-me-link:hover {
+    color: var(--accent-color);
 }
 
 @media (min-width: 992px) {
@@ -720,6 +729,10 @@ body.dark-mode .image-wrapper:hover img {
     font-family: var(--font-body);
     font-size: 1.1rem;
     transition: color 0.3s ease;
+}
+
+.about-projects-link:hover {
+    color: var(--accent-color);
 }
 
 @media (min-width: 992px) {
