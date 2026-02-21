@@ -215,3 +215,29 @@ body.dark-mode .image-wrapper:hover img {
     animation-delay: 0.4s;
 }
 
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: calc(var(--header-height) + 2rem);
+    }
+
+    .hero-content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .hero-text {
+        margin-bottom: 2rem;
+    }
+
+    .main-headline {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .hero-visual {
+        max-width: 400px;
+        order: 2;
+        /* S'assure que le visuel vient après le texte si besoin */
+    }
+}

@@ -92,7 +92,11 @@
     .about-container {
         grid-template-columns: 1fr 1.8fr;
         gap: 3rem 5rem;
-        align-items: start;
+        align-items: stretch;
+    }
+
+    .about-image-wrapper img {
+        height: 100%;
     }
 
     .about-details-grid {

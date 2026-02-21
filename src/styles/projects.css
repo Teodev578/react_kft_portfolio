@@ -101,7 +101,7 @@ body.dark-mode .project-card.is-expanded {
 }
 
 .project-card-header {
-    cursor: pointer;
+    cursor: none;
 }
 
 .project-card-inner-container {
@@ -330,4 +330,3 @@ body.dark-mode .project-card.is-expanded {
         grid-template-columns: 1fr;
     }
 }
-

@@ -9,6 +9,7 @@ import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { Preloader } from './components/layout/Preloader';
+import { MagneticCursor } from './components/ui/MagneticCursor';
 
 function AppContent() {
     const { isLoaded, setIsLoaded } = usePreloader();
@@ -35,6 +36,8 @@ function AppContent() {
     return (
         <>
             {!isLoaded && <Preloader onLoaded={() => setIsLoaded(true)} />}
+
+            {isLoaded && <MagneticCursor />}
 
             <Header />
 

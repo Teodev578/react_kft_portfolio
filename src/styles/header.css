@@ -108,7 +108,7 @@ body.dark-mode header:hover::after {
 .theme-toggle {
     background: none;
     border: none;
-    cursor: pointer;
+    cursor: none;
     color: var(--text-color);
     padding: 5px;
     display: flex;
@@ -126,7 +126,7 @@ body.dark-mode header:hover::after {
     color: var(--text-color);
     opacity: 0.6;
     transition: opacity 0.3s ease;
-    cursor: pointer;
+    cursor: none;
 }
 
 .lang-link:hover {
@@ -161,7 +161,7 @@ body.dark-mode header:hover::after {
 
 .burger-menu {
     display: none;
-    cursor: pointer;
+    cursor: none;
     width: 30px;
     height: 21px;
     position: relative;
@@ -221,10 +221,19 @@ body.dark-mode header:hover::after {
         transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         padding-top: var(--header-height);
         display: block !important;
+        z-index: 101;
     }
 
     .main-nav.nav-active {
         transform: translateX(0);
+    }
+
+    /* Cache les actions du header quand le menu est ouvert pour éviter les superpositions */
+    .main-nav.nav-active~.header-actions .language-switcher,
+    .main-nav.nav-active~.header-actions .theme-toggle {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
     }
 
     .nav-links {
