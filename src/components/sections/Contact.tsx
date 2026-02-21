@@ -79,7 +79,7 @@ export const Contact = () => {
                             <SocialLink href="https://www.instagram.com/fabienkpekpassi/" label={t('contact_social_ig')} />
                             <SocialLink href="https://www.linkedin.com/in/fabien-kpekpassi-7aba12229/" label={t('contact_social_li')} />
                             <SocialLink href="https://x.com/TeoDevUltimate" label={t('contact_social_x')} />
-                            {/*<SocialLink href="https://wa.me/22891963248" label={t('contact_social_wa')} />*/}
+                            <SocialLink href="https://wa.me/message/O2YXC4BLQOWXC1" label={t('contact_social_wa')} />
                         </div>
                         <ContactEmail email="teokpekpassi@gmail.com" />
                     </div>
