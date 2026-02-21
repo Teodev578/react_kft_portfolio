@@ -144,11 +144,12 @@
     display: block;
     object-fit: cover;
     mix-blend-mode: normal;
-    transition: mix-blend-mode 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1), mix-blend-mode 0.3s ease;
 }
 
 .image-wrapper:hover img {
     mix-blend-mode: multiply;
+    transform: scale(1.05);
 }
 
 body.dark-mode .image-wrapper:hover img {
