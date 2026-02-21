@@ -144,18 +144,34 @@
 .contact-email-new {
     font-family: var(--font-body);
     font-size: 1.25rem;
-    background-color: var(--accent-color);
     color: var(--bg-color);
     padding: 0.2rem 0.6rem;
     font-weight: 700;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
     display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.contact-email-new::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color);
+    z-index: -1;
+    transform: skewX(-5deg);
+    transition: background-color 0.3s ease;
 }
 
 .contact-email-new:hover {
     transform: scale(1.05);
+}
+
+.contact-email-new:hover::before {
     background-color: var(--text-color);
-    color: var(--bg-color);
 }
 
 .contact-background-text {
