@@ -1,25 +1,75 @@
 import { useEffect, useRef } from 'react';
 import '../../styles/magneticCursor.css';
 
+// Liste des petits éléments de code et compétences qui vont tomber
+const CODE_SNIPPETS = [
+    '{ }', '< />', '=>', '()', ';;', 'div', 'npm', '===',
+    'Flutter', 'React', 'TypeScript', 'Python', 'Figma', 'UX/UI', 'R&D', 'Firebase'
+];
+
 export const MagneticCursor = () => {
     const cursorRef = useRef<HTMLDivElement>(null);
     const ringRef = useRef<HTMLDivElement>(null);
+
+    // Refs pour calculer la vitesse sans déclencher de re-rendu React
+    const lastMouse = useRef({ x: 0, y: 0, time: Date.now() });
+    const lastParticleTime = useRef(0);
 
     useEffect(() => {
         const cursor = cursorRef.current;
         const ring = ringRef.current;
         if (!cursor || !ring) return;
 
+        // Fonction pour créer un élément qui tombe
+        const createFallingCode = (x: number, y: number) => {
+            const particle = document.createElement('span');
+            particle.className = 'falling-code-particle';
+
+            // Choix aléatoire du texte
+            particle.textContent = CODE_SNIPPETS[Math.floor(Math.random() * CODE_SNIPPETS.length)];
+
+            // Position de départ (position de la souris)
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            // Rotation aléatoire pour plus de naturel (-45deg à 45deg)
+            const randomRotation = (Math.random() - 0.5) * 90;
+            particle.style.setProperty('--rot', `${randomRotation}deg`);
+
+            document.body.appendChild(particle);
+
+            // On détruit l'élément après l'animation (1 seconde) pour vider la mémoire
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        };
+
         const moveCursor = (e: MouseEvent) => {
             const { clientX: x, clientY: y } = e;
+            const now = Date.now();
 
-            // On déplace le point central instantanément
+            // === CALCUL DE LA VITESSE ===
+            const dt = now - lastMouse.current.time;
+            if (dt > 0) {
+                const dx = x - lastMouse.current.x;
+                const dy = y - lastMouse.current.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const speed = distance / dt;
+
+                // Si la vitesse est élevée (> 2) ET qu'on n'a pas créé de particule depuis 40ms
+                if (speed > 2.5 && now - lastParticleTime.current > 40) {
+                    createFallingCode(x, y);
+                    lastParticleTime.current = now;
+                }
+            }
+
+            // Mise à jour des positions pour le prochain calcul
+            lastMouse.current = { x, y, time: now };
+
+            // === COMPORTEMENT NORMAL DU CURSEUR ===
             cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-
-            // Le cercle extérieur suit avec un léger décalage (géré par CSS transition)
             ring.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
-            // Détection de survol pour l'effet magnétique sur les liens/boutons
             const target = e.target as HTMLElement;
             const isHoverable = target.closest('a, button, .clickable');
 
@@ -53,3 +103,4 @@ export const MagneticCursor = () => {
         </>
     );
 };
+
