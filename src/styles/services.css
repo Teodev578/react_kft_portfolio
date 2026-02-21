@@ -4,11 +4,16 @@
 .services-new {
     background-color: var(--bg-color);
     color: var(--text-color);
-    padding: var(--header-height) var(--site-margin) 4rem;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+    /* On ajoute une valeur de secours (80px) au cas où la variable ne chargerait pas */
+    padding: var(--header-height, 80px) var(--site-margin) 4rem;
+
+    /* MODIFICATION : On enlève le "display: flex; align-items: center;" 
+       pour éviter que la section centre tout et bloque le calcul du scroll */
+    display: block;
+
+    /* MODIFICATION : "overflow: hidden" annule l'effet sticky. 
+       On utilise "clip" pour maîtriser les débordements sans casser le sticky. */
+    overflow: clip;
 }
 
 .services-container-new {
@@ -27,13 +32,6 @@
     line-height: 0.9;
     color: var(--accent-color);
     text-transform: uppercase;
-}
-
-.services-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
 }
 
 .services-list {
@@ -68,12 +66,29 @@
     margin-top: 2.5rem;
     align-self: flex-start;
     transition: color 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .about-me-link:hover {
     color: var(--accent-color);
 }
 
+/* Base (Mobile) pour l'image */
+.services-image-wrapper {
+    width: 100%;
+}
+
+.services-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ======================================================== */
+/*               MODE DESKTOP & EFFET STICKY                */
+/* ======================================================== */
 @media (min-width: 992px) {
     .services-container-new {
         grid-template-columns: 1fr 1.8fr;
@@ -81,6 +96,9 @@
         grid-template-areas:
             "image title"
             "image list";
+
+        /* INDISPENSABLE : Empêche l'image de s'étirer en hauteur 
+           jusqu'en bas de la liste de droite */
         align-items: start;
     }
 
@@ -89,12 +107,24 @@
         font-size: clamp(6rem, 10vw, 12rem);
     }
 
-    .services-image-wrapper {
-        grid-area: image;
-    }
-
     .services-list {
         grid-area: list;
+    }
+
+    /* === LE CŒUR DE L'EFFET STICKY === */
+    .services-image-wrapper {
+        grid-area: image;
+
+        position: sticky;
+        top: calc(var(--header-height, 80px) + 2rem);
+
+        /* INDISPENSABLE : Fixer une hauteur !
+           Cela garantit que l'image limite sa propre taille, créant ainsi
+           la "piste" vide en dessous sur laquelle elle va pouvoir glisser */
+        height: calc(100vh - var(--header-height, 80px) - 6rem);
+        min-height: 400px;
+
+        align-self: start;
     }
 
     .service-item {
@@ -109,6 +139,9 @@
     }
 }
 
+/* ======================================================== */
+/*                       ANIMATIONS                         */
+/* ======================================================== */
 @keyframes slideUpAndFadeIn {
     from {
         opacity: 0;
