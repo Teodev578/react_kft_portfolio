@@ -9,6 +9,7 @@ interface LanguageContextType {
     setLang: (lang: Language) => void;
     t: (key: TranslationKey) => string;
     tHtml: (key: TranslationKey) => { __html: string };
+    isTransitioning: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -18,11 +19,25 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         const saved = localStorage.getItem('language');
         return (saved === 'en' || saved === 'fr') ? saved : 'fr';
     });
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     const setLang = (newLang: Language) => {
-        setLangState(newLang);
-        localStorage.setItem('language', newLang);
-        document.documentElement.lang = newLang;
+        if (newLang === lang || isTransitioning) return;
+
+        // Start transition animation
+        setIsTransitioning(true);
+
+        // Wait for overlay to fade in completely
+        setTimeout(() => {
+            setLangState(newLang);
+            localStorage.setItem('language', newLang);
+            document.documentElement.lang = newLang;
+
+            // Wait slightly before hiding overlay for a smooth perceived load
+            setTimeout(() => {
+                setIsTransitioning(false);
+            }, 300);
+        }, 400); // Overlay display duration CSS time is ~0.4s
     };
 
     useEffect(() => {
@@ -38,7 +53,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     };
 
     return (
-        <LanguageContext.Provider value={{ lang, setLang, t, tHtml }}>
+        <LanguageContext.Provider value={{ lang, setLang, t, tHtml, isTransitioning }}>
             {children}
         </LanguageContext.Provider>
     );
