@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import './App.css';
 import './index.css';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -11,8 +12,10 @@ import { Contact } from './components/sections/Contact';
 import { Preloader } from './components/layout/Preloader';
 import { MagneticCursor } from './components/ui/MagneticCursor';
 
+
 function AppContent() {
     const { isLoaded, setIsLoaded } = usePreloader();
+
 
     // Intersection Observer for scroll animations
     useEffect(() => {

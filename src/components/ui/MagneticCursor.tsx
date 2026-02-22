@@ -51,6 +51,10 @@ export const MagneticCursor = () => {
             const { clientX: x, clientY: y } = e;
             const now = Date.now();
 
+            // S'assurer que le curseur est visible dès qu'on bouge la souris
+            cursor.classList.remove('hidden');
+            ring.classList.remove('hidden');
+
             // === CALCUL DE LA VITESSE ===
             const dt = now - lastMouse.current.time;
             if (dt > 0) {
@@ -87,22 +91,34 @@ export const MagneticCursor = () => {
 
         const handleMouseDown = () => ring.classList.add('active');
         const handleMouseUp = () => ring.classList.remove('active');
+        const handleMouseEnter = () => {
+            cursor.classList.remove('hidden');
+            ring.classList.remove('hidden');
+        };
+        const handleMouseLeave = () => {
+            cursor.classList.add('hidden');
+            ring.classList.add('hidden');
+        };
 
         window.addEventListener('mousemove', moveCursor);
         window.addEventListener('mousedown', handleMouseDown);
         window.addEventListener('mouseup', handleMouseUp);
+        document.addEventListener('mouseenter', handleMouseEnter);
+        document.addEventListener('mouseleave', handleMouseLeave);
 
         return () => {
             window.removeEventListener('mousemove', moveCursor);
             window.removeEventListener('mousedown', handleMouseDown);
             window.removeEventListener('mouseup', handleMouseUp);
+            document.addEventListener('mouseenter', handleMouseEnter);
+            document.addEventListener('mouseleave', handleMouseLeave);
         };
     }, []);
 
     return (
         <>
-            <div ref={cursorRef} className="custom-cursor-dot" />
-            <div ref={ringRef} className="custom-cursor-ring" />
+            <div ref={cursorRef} className="custom-cursor-dot hidden" />
+            <div ref={ringRef} className="custom-cursor-ring hidden" />
         </>
     );
 };
