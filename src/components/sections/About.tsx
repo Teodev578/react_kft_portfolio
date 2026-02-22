@@ -1,7 +1,14 @@
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useLenis } from 'lenis/react';
 
 export const About = () => {
     const { t, tHtml } = useLanguage();
+    const lenis = useLenis();
+
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+        e.preventDefault();
+        lenis?.scrollTo(target);
+    };
 
     return (
         <section id="about" className="about-section">
@@ -40,7 +47,7 @@ export const About = () => {
 
                     </div>
 
-                    <a href="#projets" className="about-projects-link">{t('about_scroll_projects')}</a>
+                    <a href="#projets" className="about-projects-link" onClick={(e) => handleScroll(e, '#projets')}>{t('about_scroll_projects')}</a>
                 </div>
 
             </div>
