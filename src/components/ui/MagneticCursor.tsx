@@ -41,10 +41,10 @@ export const MagneticCursor = () => {
 
             document.body.appendChild(particle);
 
-            // On détruit l'élément après l'animation (1 seconde) pour vider la mémoire
+            // On détruit l'élément après l'animation (3 secondes) pour vider la mémoire
             setTimeout(() => {
                 particle.remove();
-            }, 1000);
+            }, 3000);
         };
 
         const moveCursor = (e: MouseEvent) => {
