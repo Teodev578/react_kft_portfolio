@@ -11,6 +11,7 @@ import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { Preloader } from './components/layout/Preloader';
 import { MagneticCursor } from './components/ui/MagneticCursor';
+import { ReactLenis } from 'lenis/react';
 
 
 function AppContent() {
@@ -64,7 +65,9 @@ function usePreloader() {
 function App() {
     return (
         <LanguageProvider>
-            <AppContent />
+            <ReactLenis root>
+                <AppContent />
+            </ReactLenis>
         </LanguageProvider>
     );
 }

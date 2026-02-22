@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useLenis } from 'lenis/react';
 
 export const Header = () => {
     const { lang, setLang, t } = useLanguage();
@@ -16,9 +17,26 @@ export const Header = () => {
     };
 
     // Gestion du scroll
+    const lenis = useLenis(({ scroll }) => {
+        setIsScrolled(scroll > 50);
+    });
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+        e.preventDefault();
+        setIsMenuOpen(false);
+        if (lenis) {
+            lenis.scrollTo(target);
+        } else {
+            document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Initialisation
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
+        // Au cas où lenis n'est pas encore initialisé
+        window.addEventListener('scroll', handleScroll, { once: true });
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -44,7 +62,7 @@ export const Header = () => {
             onMouseMove={handleMouseMove}
         >
             <div className="container header-container">
-                <a href="#accueil" className="logo">
+                <a href="#accueil" className="logo" onClick={(e) => handleLinkClick(e, '#accueil')}>
                     <img src="/assets/logo-teo_compressed_final.png" alt="Logo" className="logo-image" />
                     <span>Fabien Téo KPEKPASSI</span>
                 </a>
@@ -53,11 +71,11 @@ export const Header = () => {
                     <nav className={`main-nav ${isMenuOpen ? 'nav-active' : ''}`} id="main-nav">
                         <ul className="nav-links">
                             {/* On ferme le menu quand on clique sur un lien */}
-                            <li><a href="#accueil" onClick={() => setIsMenuOpen(false)}>{t('nav_home')}</a></li>
-                            <li><a href="#services" onClick={() => setIsMenuOpen(false)}>{t('nav_services')}</a></li>
-                            <li><a href="#about" onClick={() => setIsMenuOpen(false)}>{t('nav_about')}</a></li>
-                            <li><a href="#projets" onClick={() => setIsMenuOpen(false)}>{t('nav_projects')}</a></li>
-                            <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>{t('nav_contact')}</a></li>
+                            <li><a href="#accueil" onClick={(e) => handleLinkClick(e, '#accueil')}>{t('nav_home')}</a></li>
+                            <li><a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>{t('nav_services')}</a></li>
+                            <li><a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>{t('nav_about')}</a></li>
+                            <li><a href="#projets" onClick={(e) => handleLinkClick(e, '#projets')}>{t('nav_projects')}</a></li>
+                            <li><a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>{t('nav_contact')}</a></li>
                         </ul>
                     </nav>
 
