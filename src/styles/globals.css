@@ -62,7 +62,6 @@ body {
     line-height: 1.6;
     transition: background-color 0.5s ease, color 0.5s ease;
     overflow-x: clip;
-    cursor: none;
 }
 
 .container {
@@ -82,10 +81,10 @@ a {
     color: inherit;
     text-decoration: none;
     transition: color 0.3s ease;
-    cursor: none;
 }
 
-/* Force la disparition du curseur sur absolument tout */
-* {
-    cursor: none !important;
+@media (pointer: fine) {
+    * {
+        cursor: none !important;
+    }
 }

@@ -6,7 +6,7 @@ export const translations = {
         nav_projects: "Projet",
         nav_contact: "Contact",
         hero_headline: "DÉVELOPPEUR",
-        hero_intro: "Je suis Fabien Téo KPEKPASSi, développeur créatif. Je conçois des solutions logicielles efficaces pour automatiser vos tâches, optimiser vos processus métier et vous faire gagner du temps comme de l'argent.",
+        hero_intro: "Je suis Fabien Téo KPEKPASSI. Je conçois des solutions logicielles efficaces pour automatiser vos tâches, optimiser vos processus métier et vous faire gagner du temps comme de l'argent.",
         hero_contact_btn: "Contactez-moi",
         hero_cv_btn: "télécharger mon CV",
         hero_scroll_services: "↓ Mes services",
@@ -18,7 +18,7 @@ export const translations = {
         service_3_title: "*Maintenance et amélioration continue",
         service_3_desc: "Je reste à vos côtés pour faire évoluer vos outils, corriger les problèmes rapidement et intégrer de nouvelles fonctionnalités.",
         service_4_title: "*Ouvert aux opportunités",
-        service_4_desc: "Je suis également disponible pour des missions freelance, des contrats de stage ou des propositions d'emploi dans le domaine du développement.",
+        service_4_desc: "Ouvert aux opportunités en développement, je suis disponible pour des missions freelance, des stages ou des postes en entreprise.",
         services_scroll_about: "↓ A propos de moi",
         about_subtitle: "Développeur créatif",
         about_description: "Mon parcours est marqué par une démarche autodidacte constante, complétée par une formation en Licence Développement d'application à l'Université Catholique de L’Afrique De L’Ouest - Unité Universitaire du Togo (UCAO-UUT) de 2021 à 2024. C'est cette curiosité et cette soif d'apprendre par moi-même qui m'ont permis de maîtriser les technologies actuelles et de transformer des idées complexes en solutions numériques concrètes, intuitives et performantes.",
@@ -28,7 +28,12 @@ export const translations = {
         about_skills_content: `<ul><li>-Recherche et développement</li><li>-Flutter</li><li>-React</li><li>-TypeScript</li><li>-Figma</li><li>-Python</li><li>-UX/UI</li></ul>`,
         about_exp_title: "Experience clé :",
         about_exp_content_title: "<strong>Développeur Flutter</strong>, Quincaillerie Bright Morning Star (BMS) Lomé, Togo | 2025",
-        about_exp_content_list: `<ul><li>Conception et développement d’une application de gestion des ventes pour une PME locale.</li><li>Intégration des modules de gestion des produits, clients, fournisseurs et ventes.</li><li>Utilisation de Firebase Firestore pour le stockage en ligne.</li><li>Mise en place d’un tableau de bord analytique pour le suivi des ventes et des produits les plus vendus.</li><li>Amélioration du temps de traitement des transactions et réduction des erreurs de saisie grâce à une interface intuitive.</li></ul>`,
+        about_exp_content_list: `<ul>
+<li>Développement d’une application de gestion des ventes pour une PME locale.</li>
+<li>Modules : produits, clients, fournisseurs et ventes (Firebase Firestore).</li>
+<li>Tableau de bord analytique pour le suivi des performances.</li>
+<li>Optimisation des transactions et réduction des erreurs grâce à une UI intuitive.</li>
+</ul>`,
         about_scroll_projects: "↓ Quelques projets",
         projects_header_title: "MES PROJETS",
         projects_header_desc: "Voici une sélection de projets que j'ai développés dans le cadre de mon apprentissage en développement.",
@@ -76,7 +81,7 @@ export const translations = {
         nav_projects: "Project",
         nav_contact: "Contact",
         hero_headline: "DEVELOPER",
-        hero_intro: "I am Fabien Téo KPEKPASSi, a creative developer. I design effective software solutions to automate your tasks, optimize your business processes, and save you time and money.",
+        hero_intro: "I am Fabien Téo KPEKPASSI. I design effective software solutions to automate your tasks, optimize your business processes, and save you time and money.",
         hero_contact_btn: "Contact me",
         hero_cv_btn: "download my resume",
         hero_scroll_services: "↓ My services",
@@ -88,7 +93,7 @@ export const translations = {
         service_3_title: "*Maintenance & Continuous Improvement",
         service_3_desc: "I remain by your side to evolve your tools, fix issues quickly, and integrate new features.",
         service_4_title: "*Open to Opportunities",
-        service_4_desc: "I am also available for freelance missions, internship contracts, or job offers in the development field.",
+        service_4_desc: "Open to development opportunities, I am available for freelance projects, internships, or full-time positions.",
         services_scroll_about: "↓ About me",
         about_subtitle: "Creative Developer",
         about_description: "My journey is marked by a constant self-taught approach, complemented by a Bachelor's degree in Application Development from the Catholic University of West Africa - Togo University Unit (UCAO-UUT) from 2021 to 2024. It is this curiosity and thirst for self-learning that have allowed me to master current technologies and transform complex ideas into concrete, intuitive, and high-performing digital solutions.",
@@ -98,7 +103,12 @@ export const translations = {
         about_skills_content: `<ul><li>-Research and Development</li><li>-Flutter</li><li>-React</li><li>-TypeScript</li><li>-Figma</li><li>-Python</li><li>-UX/UI</li></ul>`,
         about_exp_title: "Key Experience:",
         about_exp_content_title: "<strong>Flutter Developer</strong>, Bright Morning Star (BMS) Hardware Store Lomé, Togo | 2025",
-        about_exp_content_list: `<ul><li>Design and development of a sales management application for a local SME.</li><li>Integration of product, customer, supplier, and sales management modules.</li><li>Use of Firebase Firestore for online storage.</li><li>Implementation of an analytical dashboard.</li><li>Improvement of transaction processing time.</li></ul>`,
+        about_exp_content_list: `<ul>
+<li>Built a sales management application for a local SME.</li>
+<li>Full management system: products, customers, suppliers, sales.</li>
+<li>Firebase Firestore integration with analytics dashboard.</li>
+<li>Improved performance and reduced input errors through enhanced UX.</li>
+</ul>`,
         about_scroll_projects: "↓ Some projects",
         projects_header_title: "MY PROJECTS",
         projects_header_desc: "Here is a selection of projects that I have developed as part of my development learning.",

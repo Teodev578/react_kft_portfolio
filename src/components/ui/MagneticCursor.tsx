@@ -16,6 +16,9 @@ export const MagneticCursor = () => {
     const lastParticleTime = useRef(0);
 
     useEffect(() => {
+        // On désactive la logique si l'appareil n'a pas de pointeur précis (ex: tactile pur)
+        if (window.matchMedia('(pointer: coarse)').matches) return;
+
         const cursor = cursorRef.current;
         const ring = ringRef.current;
         if (!cursor || !ring) return;
