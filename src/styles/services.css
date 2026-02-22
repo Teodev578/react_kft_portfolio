@@ -78,6 +78,8 @@
 .services-image-wrapper {
     width: 100%;
     overflow: hidden;
+    aspect-ratio: 16 / 9;
+    max-height: 45vh;
 }
 
 .services-image-wrapper img {
@@ -129,6 +131,8 @@
            la "piste" vide en dessous sur laquelle elle va pouvoir glisser */
         height: calc(100vh - var(--header-height, 80px) - 6rem);
         min-height: 400px;
+        max-height: none;
+        aspect-ratio: auto;
 
         align-self: start;
     }
