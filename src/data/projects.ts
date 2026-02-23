@@ -37,16 +37,31 @@ export const projectsData: ProjectModalData[] = [
         closeKey: 'dialog_close_2'
     },
     {
-        id: 'dialog-projet-scolaire',
+        id: 'dialog-projet-pomodo',
         number: '#3',
         titleKey: 'project_3_title',
-        tags: ['AI', 'FLUTTER'],
+        tags: ['React', 'TypeScript', 'Productivité'],
         actionKey: 'project_learn_more_3',
+        image: '/assets/pomodo_mockup.png',
+        modalTitleKey: 'dialog_pomodo_title',
+        shortDescKey: 'dialog_pomodo_short_desc',
+        techTags: ['React', 'TypeScript', 'Vite'],
+        p1Key: 'dialog_pomodo_p1',
+        p2Key: 'dialog_pomodo_p2',
+        p3Key: 'dialog_pomodo_p3',
+        closeKey: 'dialog_close_3'
+    },
+    {
+        id: 'dialog-projet-scolaire',
+        number: '#4',
+        titleKey: 'project_4_title',
+        tags: ['AI', 'FLUTTER'],
+        actionKey: 'project_learn_more_4',
         image: '',
-        modalTitleKey: 'project_3_title',
-        shortDescKey: 'project_3_title',
+        modalTitleKey: 'project_4_title',
+        shortDescKey: 'project_4_title',
         techTags: [],
         p1Key: 'dialog_school_content',
-        closeKey: 'dialog_close_3'
+        closeKey: 'dialog_close_4'
     }
 ];

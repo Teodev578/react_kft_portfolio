@@ -22,7 +22,7 @@ export const About = () => {
                     <div className="about-intro">
                         <h2 className="about-name">Fabien Téo KPEKPASSi</h2>
                         <p className="about-subtitle">{t('about_subtitle')}</p>
-                        <p className="about-description">{t('about_description')}</p>
+                        <p className="about-description" dangerouslySetInnerHTML={tHtml('about_description')}></p>
                     </div>
 
                     <div className="about-details-grid">
