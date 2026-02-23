@@ -2,7 +2,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useLenis } from 'lenis/react';
 
 export const Hero = () => {
-    const { t, lang } = useLanguage();
+    const { t, lang, tHtml } = useLanguage();
     const lenis = useLenis();
 
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
@@ -17,7 +17,7 @@ export const Hero = () => {
                 <div className="hero-main-content">
                     <div className="hero-text">
                         <h1 className="main-headline">{t('hero_headline')}</h1>
-                        <p className="intro-text">{t('hero_intro')}</p>
+                        <p className="intro-text" dangerouslySetInnerHTML={tHtml('hero_intro')} />
                     </div>
 
                     <div className="hero-actions">
