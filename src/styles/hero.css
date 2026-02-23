@@ -59,8 +59,8 @@
 
 .main-headline {
     font-family: var(--font-headline);
-    font-weight: 400;
-    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 600;
+    font-size: clamp(4rem, 12vw, 8rem);
     line-height: 0.9;
     text-transform: uppercase;
     margin-bottom: 2rem;
