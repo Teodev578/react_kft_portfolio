@@ -67,6 +67,9 @@
     position: relative;
     color: var(--text-color);
     display: inline-block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     animation: flicker 4s infinite linear;
     animation-delay: 2s;
 }
@@ -233,7 +236,7 @@ body.dark-mode .image-wrapper:hover img {
     }
 
     .main-headline {
-        font-size: clamp(3rem, 15vw, 5rem);
+        font-size: clamp(2rem, 8.5vw, 4.5rem);
     }
 
     .hero-visual {
