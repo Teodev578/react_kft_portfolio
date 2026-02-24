@@ -142,15 +142,17 @@
     font-size: 1.2rem;
     padding: 0.3rem 0.5rem;
     border-bottom: 2px solid var(--border-color);
-    transition: color 0.2s step-end, background-color 0.2s step-end;
+    transition: all 0.3s ease;
     background-color: transparent;
     color: var(--text-color);
+    display: inline-block;
 }
 
 .hero-link:hover {
     color: var(--bg-color);
     background-color: var(--text-color);
     border-color: var(--text-color);
+    transform: scale(1.02);
 }
 
 .hero-visual {
