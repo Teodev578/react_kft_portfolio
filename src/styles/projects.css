@@ -104,21 +104,21 @@ body.dark-mode .project-card.is-expanded {
     width: 100%;
     max-width: var(--site-max-width);
     margin: 0 auto;
-    padding: 3rem var(--site-margin);
+    padding: 1.5rem var(--site-margin);
     display: flex;
     align-items: center;
 }
 
 .card-number {
     font-family: var(--font-headline);
-    font-size: 6rem;
+    font-size: 4rem;
     font-weight: 400;
     color: var(--accent-color);
     line-height: 1;
-    margin-right: 3rem;
-    padding-right: 3rem;
+    margin-right: 2rem;
+    padding-right: 2rem;
     border-right: 2px solid var(--border-color);
-    min-width: 180px;
+    min-width: 120px;
 }
 
 .card-content {
@@ -126,12 +126,12 @@ body.dark-mode .project-card.is-expanded {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .card-title {
     font-family: var(--font-headline);
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 400;
     text-transform: uppercase;
     line-height: 1;
@@ -139,11 +139,11 @@ body.dark-mode .project-card.is-expanded {
 
 .card-description {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-light);
-    margin: 0.75rem 0 1.25rem;
+    margin: 0.5rem 0 0.75rem;
     max-width: 60ch;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .card-tags {
@@ -189,22 +189,22 @@ body.dark-mode .project-card.is-expanded {
 }
 
 .accordion-inner {
-    padding: 2rem var(--site-margin) 5rem;
+    padding: 1.5rem var(--site-margin) 3rem;
     max-width: var(--site-max-width);
     margin: 0 auto;
 }
 
 .accordion-grid {
     display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 5rem;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
     align-items: start;
 }
 
 .accordion-visual-side {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 .accordion-image-wrapper {
@@ -254,7 +254,7 @@ body.dark-mode .project-card.is-expanded {
 .accordion-text-side {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .accordion-headline {
