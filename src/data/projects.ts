@@ -1,6 +1,7 @@
 import type { ProjectModalData } from '../types/Project';
 import screenshot1 from '../assets/Capture d\'écran 1.png';
 import screenshot2 from '../assets/Capture d\'écran 2.png';
+import pomodoMockup from '../assets/pomodo_mockup.png';
 
 export const projectsData: ProjectModalData[] = [
     {
@@ -44,7 +45,7 @@ export const projectsData: ProjectModalData[] = [
         titleKey: 'project_3_title',
         tags: ['React', 'TypeScript', 'Productivité'],
         actionKey: 'project_learn_more_3',
-        image: '/assets/pomodo_mockup.png',
+        image: pomodoMockup,
         modalTitleKey: 'dialog_pomodo_title',
         shortDescKey: 'dialog_pomodo_short_desc',
         techTags: ['React', 'TypeScript', 'Vite'],

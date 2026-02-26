@@ -1,5 +1,6 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useLenis } from 'lenis/react';
+import serviceMockup from '../../assets/service_mockup.avif';
 
 export const Services = () => {
     const { t } = useLanguage();
@@ -17,7 +18,7 @@ export const Services = () => {
                 <h2 className="services-main-title">{t('services_title')}</h2>
 
                 <div className="services-image-wrapper">
-                    <img src="/assets/service_mockup.avif" alt="Exemple de code sur un écran" />
+                    <img src={serviceMockup} alt="Exemple de code sur un écran" />
                 </div>
 
                 <div className="services-list">

@@ -1,6 +1,8 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useLenis } from 'lenis/react';
 import portraitImg from '../../assets/portrait.avif';
+import cvFr from '../../assets/CV-Fr-Fabien-Téo-KPEKPASSI.pdf';
+import cvEn from '../../assets/CV-En-Fabien-Téo-KPEKPASSI.pdf';
 
 export const Hero = () => {
     const { t, lang, tHtml } = useLanguage();
@@ -10,6 +12,8 @@ export const Hero = () => {
         e.preventDefault();
         lenis?.scrollTo(target);
     };
+
+    const cvPath = lang === 'fr' ? cvFr : cvEn;
 
     return (
         <section id="accueil" className="hero">
@@ -25,7 +29,7 @@ export const Hero = () => {
                         <a href="#contact" className="hero-link" onClick={(e) => handleScroll(e, '#contact')}>
                             <span>{t('hero_contact_btn')}</span>
                         </a>
-                        <a href={`/assets/CV-${lang === 'fr' ? 'Fr' : 'En'}-Fabien-Téo-KPEKPASSI.pdf`} download className="hero-link" id="cv-download-link" target="_blank">
+                        <a href={cvPath} download className="hero-link" id="cv-download-link" target="_blank">
                             <span>{t('hero_cv_btn')}</span>
                         </a>
                     </div>
