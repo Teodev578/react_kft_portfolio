@@ -275,6 +275,6 @@ body.dark-mode .image-wrapper:hover img {
 @media (max-width: 480px) {
     .hero {
         /* Réduction du padding en haut en version mobile */
-        padding-top: calc(var(--header-height) - 0.5 rem);
+        padding-top: calc(var(--header-height) - 0.2 rem);
     }
 }
