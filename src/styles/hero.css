@@ -248,7 +248,7 @@ body.dark-mode .image-wrapper:hover img {
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 992px) {
     .hero {
-        padding-top: calc(var(--header-height) + 1rem);
+        padding-top: calc(var(--header-height) + 2rem);
     }
 
     .hero-content-grid {
@@ -274,7 +274,7 @@ body.dark-mode .image-wrapper:hover img {
 
 @media (max-width: 480px) {
     .hero {
-        /*Réduction du padding en haut en version mobile*/
-        padding-top: calc(var(--header-height) + -1rem);
+        /* Réduction du padding en haut en version mobile */
+        padding-top: calc(var(--header-height) - 0.5 rem);
     }
 }
