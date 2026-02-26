@@ -1,4 +1,6 @@
 import type { ProjectModalData } from '../types/Project';
+import screenshot1 from '../assets/Capture d\'écran 1.png';
+import screenshot2 from '../assets/Capture d\'écran 2.png';
 
 export const projectsData: ProjectModalData[] = [
     {
@@ -15,9 +17,9 @@ export const projectsData: ProjectModalData[] = [
         p2Key: 'dialog_bms_p2',
         p3Key: 'dialog_bms_p3',
         p4Key: 'dialog_bms_p4',
-        screenshot1: '/assets/Capture d\'écran 1.png',
+        screenshot1: screenshot1,
         caption1Key: 'dialog_bms_caption1',
-        screenshot2: '/assets/Capture d\'écran 2.png',
+        screenshot2: screenshot2,
         caption2Key: 'dialog_bms_caption2',
         closeKey: 'dialog_close'
     },

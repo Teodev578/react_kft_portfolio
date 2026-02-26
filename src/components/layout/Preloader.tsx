@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logoTeo from '../../assets/logo-teo_compressed_final.png';
 
 interface PreloaderProps {
     onLoaded: () => void;
@@ -35,7 +36,7 @@ export const Preloader = ({ onLoaded }: PreloaderProps) => {
 
     return (
         <div id="preloader">
-            <img src="/assets/logo-teo_compressed_final.png" alt="Logo" className="preloader-logo" />
+            <img src={logoTeo} alt="Logo" className="preloader-logo" />
             <div className="progress-container">
                 <div id="progress-bar" style={{ width: `${loadingProgress}%` }}></div>
             </div>

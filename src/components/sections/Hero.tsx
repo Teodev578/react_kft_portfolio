@@ -1,5 +1,6 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useLenis } from 'lenis/react';
+import portraitImg from '../../assets/portrait.avif';
 
 export const Hero = () => {
     const { t, lang, tHtml } = useLanguage();
@@ -32,7 +33,7 @@ export const Hero = () => {
 
                 <div className="hero-visual">
                     <div className="image-wrapper">
-                        <img src="/assets/portrait.avif" alt="Portrait de Fabien Téo KPEKPASSi" />
+                        <img src={portraitImg} alt="Portrait de Fabien Téo KPEKPASSi" />
                     </div>
                     <div className="visual-caption">
                         <span className="caption-name">Fabien Téo KPEKPASSi</span>

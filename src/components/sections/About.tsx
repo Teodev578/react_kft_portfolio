@@ -1,5 +1,6 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useLenis } from 'lenis/react';
+import portraitAbout from '../../assets/portrait-3.avif';
 
 export const About = () => {
     const { t, tHtml } = useLanguage();
@@ -15,7 +16,7 @@ export const About = () => {
             <div className="about-container">
 
                 <div className="about-image-wrapper">
-                    <img src="/assets/portrait-3.avif" alt="Photo de Fabien Téo KPEKPASSi" />
+                    <img src={portraitAbout} alt="Photo de Fabien Téo KPEKPASSi" />
                 </div>
 
                 <div className="about-content-scroll">
