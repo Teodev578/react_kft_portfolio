@@ -32,6 +32,11 @@ export const translations = {
                                     <li>J'ai conçu une solution de gestion complète sous Flutter/Firebase pour optimiser les ventes d'une PME locale, avec par exemple des modules afin d'enregistrer les ventes, gérer les produits et les fournisseurs, suivre les dettes clients, et générer automatiquement des rapports PDF ou Excel...</li>
                                     <li>J'en parle plus en détail dans la section Projets ci-dessous.</li>
                                     </ul>`,
+        about_academic_exp_title: "<strong>Projets académiques : UCAO-UUT | 2021 - 2024</strong>",
+        about_academic_exp_list: `<ul>
+                                    <li><strong>Gestionnaire de bibliothèque (VB.Net) :</strong> Conception d'une application de bureau pour la gestion automatisée des ouvrages et des emprunts.</li>
+                                    <li><strong>Système de gestion scolaire :</strong> Développement d'une solution pour la gestion des inscriptions et du suivi des notes d'étudiants.</li>
+                                    </ul>`,
         about_scroll_projects: "↓ Quelques projets",
         projects_header_title: "MES PROJETS",
         projects_header_desc: "Voici une sélection de projets que j'ai développés dans le cadre de mon apprentissage en développement.",
@@ -112,6 +117,11 @@ export const translations = {
         about_exp_content_list: `<ul>
                                     <li>I designed a comprehensive management solution using Flutter/Firebase to optimize sales for a local SME, including modules to record sales, manage products and suppliers, track customer debts, and automatically generate PDF or Excel reports...</li>
                                     <li>I discuss this in more detail in the Projects section below.</li>
+                                </ul>`,
+        about_academic_exp_title: "<strong>Academic Projects: UCAO-UUT | 2021 - 2024</strong>",
+        about_academic_exp_list: `<ul>
+                                    <li><strong>Library Manager (VB.Net):</strong> Design of a desktop application for automated book and loan management.</li>
+                                    <li><strong>School Management System:</strong> Development of a solution for student registration and grade tracking.</li>
                                 </ul>`,
         about_scroll_projects: "↓ Some projects",
         projects_header_title: "MY PROJECTS",

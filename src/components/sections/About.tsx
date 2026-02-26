@@ -40,6 +40,9 @@ export const About = () => {
                         <article className="about-detail-item">
                             <h3 className="detail-title">{t('about_exp_title')}</h3>
                             <div className="detail-content">
+                                <p dangerouslySetInnerHTML={tHtml('about_academic_exp_title')}></p>
+                                <div dangerouslySetInnerHTML={tHtml('about_academic_exp_list')}></div>
+                                <br />
                                 <p dangerouslySetInnerHTML={tHtml('about_exp_content_title')}></p>
                                 <div dangerouslySetInnerHTML={tHtml('about_exp_content_list')}></div>
                             </div>
