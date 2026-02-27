@@ -16,6 +16,7 @@
 
     /* --- Paramètres de Layout --- */
     --header-height: 70px;
+    --my-padding: 2rem;
     --site-margin: 5%;
     --site-max-width: 1440px;
 
