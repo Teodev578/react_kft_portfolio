@@ -9,14 +9,18 @@ header {
     left: 0;
     z-index: 100;
     background-color: transparent;
-    transition: background-color 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease;
+    /* Optimisation des performances : on évite d'animer le backdrop-filter */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Force l'accélération matérielle pour éviter les saccades au scroll */
+    transform: translate3d(0, 0, 0);
+    will-change: background-color, box-shadow;
 }
 
 header.scrolled {
     background-color: transparent;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
 header::after {
@@ -203,6 +207,21 @@ body.dark-mode header:hover::after {
 /*                  RESPONSIVE MENU MOBILE                  */
 /* ======================================================== */
 @media (max-width: 992px) {
+
+    /* CORRECTION SACCADES MOBILE : 
+       On retire le blur du header sur mobile car c'est extrêmement 
+       gourmand en GPU au scroll, et on met un fond quasi opaque à la place. */
+    header.scrolled {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        /* Utilisation de color-mix pour avoir 90% d'opacité avec la variable hexadécimale */
+        background-color: color-mix(in srgb, var(--bg-color) 95%, transparent);
+    }
+
+    body.dark-mode header.scrolled {
+        background-color: color-mix(in srgb, var(--bg-color) 95%, transparent);
+    }
+
     .burger-menu {
         display: block;
     }
